@@ -1,0 +1,135 @@
+// frankfurt.scss - Beamer-like Reveal.js theme
+
+// Step 1: Shared mixins
+@import "../template/mixins";
+
+// Step 2: Default settings
+@import "../template/settings";
+
+// Step 3: Overrides for Frankfurt/Beamer style
+
+// Background
+$backgroundColor: #ffffff;
+
+// Fonts
+$mainFont: 'Lato', sans-serif;
+$mainFontSize: 36px;
+$mainColor: #000;
+
+// Heading fonts (serif, bold, similar to Beamer's default style)
+$headingFont: 'Georgia', serif;
+$headingColor: #000;
+$headingFontWeight: bold;
+$headingTextTransform: none;
+$headingTextShadow: none;
+$headingLineHeight: 1.2;
+
+// Layout and margins
+$blockMargin: 30px;
+$headingMargin: 0 0 $blockMargin 0;
+
+// Code and links
+$codeFont: 'Courier New', monospace;
+$linkColor: #0066cc;
+$linkColorHover: #3399ff;
+$selectionBackgroundColor: #ffffaa;
+$selectionColor: #000;
+
+// Panel-style boxes
+$overlayElementBgColor: 220, 220, 220;
+$overlayElementFgColor: 0, 0, 0;
+
+
+// Frankfurt Beamer-style top bar
+.reveal .slide-background {
+    background-color: white;
+  }
+
+  
+  .reveal::before {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 15vh; /* total height of both bars, adjust as needed */
+    z-index: 1;
+  
+    background: linear-gradient(
+      to bottom,
+      black 0vh,
+      black 2vh,
+      #3333b2 3vh,
+      #3333b2 13vh,
+      #3333b2 13vh,
+      white 14vh,
+      white 15vh
+    );
+  }
+  
+  .reveal .slides h1,
+  .reveal .slides h2,
+  .reveal .slides h3 {
+    position: absolute;
+    top: 0.5vh; /* Roughly vertically centered in the blue bar (2.5vh + half of 10vh) */
+    left: -20vw;
+    color: white;
+    font-size: 1.5em;
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    padding-left: 20vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    width: 100vw;
+    z-index: 2;
+  }
+  
+.reveal .slides section {
+    padding-top: 100px; // Adjust this based on your top bar + heading height
+    text-align: left;
+  }
+  
+
+
+// Step 4: Base theme
+@import "../template/theme";
+
+// Additional overrides
+.reveal {
+  text-align: left;
+}
+
+.reveal .slides section {
+  text-align: left;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  text-align: left;
+  font-weight: bold;
+}
+
+.reveal blockquote {
+  background: #f5f5f5;
+  border-left: 5px solid #999;
+  padding: 10px 20px;
+  color: #333;
+  font-style: italic;
+}
+
+.reveal .tcolorbox {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 1em;
+  border-radius: 4px;
+}
+
+.reveal .tcolorbox-title {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
